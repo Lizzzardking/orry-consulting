@@ -1,1 +1,74 @@
 @import "tailwindcss";
+
+* {
+  /* padding: 0;
+  margin: 0; */
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-dark-blue: oklch(21.613% 0.09471 275.052);
+
+  /* -- FONTS --- */
+  --font-arial: "Arial", sans-serif;
+
+  /* -- FONT SIZES --- */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+
+  /* -- FONT WEIGHTS --- */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* -- SIZES --- */
+  --spacing-72: 18rem;
+  --spacing-84: 21rem;
+  --spacing-96: 24rem;
+  --spacing-160: 40rem;
+}
+
+/* FAQs */
+
+.faq-item {
+  box-shadow: 0 0 1.875rem oklch(63.313% 0.25239 28.593 / 0.1); /* 30px */
+  padding: 1.25rem 1.5rem; /* 20px 24px */
+  padding-right: 3rem; /* 48px */
+  cursor: pointer;
+  border-top: 0.25rem solid #fff; /* 4px */
+  border-bottom: 0.25rem solid #fff; /* 4px */
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 2.5rem; /* 40px */
+  row-gap: 2rem; /* 32px */
+  align-items: center;
+}
+
+.content-box ul {
+  color: #868e96;
+  margin-left: 16px;
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.open {
+  border-top: 1rem solid oklch(66.847% 0.28574 343.794);
+}
