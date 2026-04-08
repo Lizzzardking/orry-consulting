@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 //import reactLogo from "./assets/react.svg";
 //import viteLogo from "./assets/vite.svg";
 //import heroImg from "./assets/hero.png";
@@ -24,23 +24,91 @@ function App() {
   //const [count, setCount] = useState(0);
 
   return (
-    <body className="bg-dark-blue text-white">
+    <div className="bg-dark-blue text-white h-screen ">
       <section>
         <header>This will be the </header>
         <h1>Hero Section</h1>
       </section>
       <section>
-        <h1>main body section</h1>
+        <h1>main body hello</h1>
+        <BudgetCalculator503020 />
       </section>
       <section>
         <h1>FAQ</h1>
         <FAQs data={faqs} />
       </section>
-    </body>
+    </div>
   );
 }
 
 export default App;
+
+/*-------- BUDGET CALCULATOR -----------*/
+
+function BudgetCalculator503020() {
+  const [budget, setBudget] = useState("");
+  const b = Number(budget) || 0;
+  const needs = b * 0.5;
+  const wants = b * 0.3;
+  const savings = b * 0.2;
+
+  return (
+    <div className="h-160 w-160 mx-auto border-2">
+      <p>
+        Schreibe hier dein monatliches Budget auf und erhalte eine Aufteilung
+        nach der 50/30/20-Regel:
+      </p>
+      <input
+        type="number"
+        min="0"
+        placeholder="Dein monatliches Budget in €"
+        value={budget}
+        onChange={(e) => setBudget(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "-" || e.key === "Minus") e.preventDefault();
+        }}
+        className="bg-cyan-500 mt-5 pl-3 rounded-sm w-120 text-center"
+      />
+      {/* <Output needs={needs} wants={wants} savings={savings} /> */}
+      <ResultBox title="Fixkosten" result={needs}>
+        <label className="mr-4">Fixkosten</label>
+      </ResultBox>
+      <ResultBox title="Wünsche" result={wants}>
+        <label className="mr-4">Wünsche</label>
+      </ResultBox>
+      <ResultBox title="Ersparnisse" result={savings}>
+        <label className="mr-4">Ersparnisse</label>
+      </ResultBox>
+    </div>
+  );
+}
+
+function ResultBox({ result, children }) {
+  return (
+    <div>
+      {children}
+      {result.toFixed(2)} €
+    </div>
+  );
+}
+
+// function Output({ needs, wants, savings }) {
+//   return (
+//     <div>
+//       <h2>
+//         Budget für deine Fixkosten: <span>{needs.toFixed()}</span> €
+//       </h2>
+//       <h2>
+//         Budget für deine Wünsche: <span>{wants.toFixed()}</span> €
+//       </h2>
+//       <h2>
+//         Budget für deine Ersparnisse: <span>{savings.toFixed()}</span> €
+//       </h2>
+//     </div>
+//   );
+// }
+
+/*-------- FAQS -----------*/
 
 function FAQs({ data }) {
   const [currentlyOpen, setCurrentlyOpen] = useState(null);
