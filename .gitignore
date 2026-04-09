@@ -137,3 +137,12 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Mac System Files
+.DS_Store
+
+# IDE - VS Code
+.vscode/
+
+# Production Build Output
+frontend/dist/
